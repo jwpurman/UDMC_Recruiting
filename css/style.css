@@ -1,0 +1,30 @@
+body
+{
+	/*min-height: 2000px;*/
+	padding-top: 70px;
+}
+
+.panel-title > a:hover div, .panel-title > a:focus div
+{
+	text-decoration: underline;
+}
+
+.panel-title > a
+{
+	display: block;
+}
+
+.tab-content .tab-pane.with-border.active
+{
+	padding: 10px 15px;
+	border: 1px solid #ddd;
+	border-top: none;
+	border-bottom-left-radius: 4px 4px;
+	border-bottom-right-radius: 4px 4px;
+}
+
+.not_authenticated .is_authenticated,
+.authenticated .is_not_authenticated
+{
+	display: none;
+}

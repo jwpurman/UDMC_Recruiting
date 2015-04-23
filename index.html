@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<title>IncNow | My Account</title>
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link href="plugins/select2/select2.css" rel="stylesheet"/>
+	<link href="plugins/select2/select2-bootstrap.css" rel="stylesheet"/>
+	<link href="css/style.css" rel="stylesheet"/>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="plugins/select2/select2.min.js"></script>
+</head>
+
+<body class="not_authenticated">
+	<!-- IncNow Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PPMZHS"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function (w, d, s, l, i) {w[l] = w[l] || []; w[l].push({'gtm.start':
+	new Date().getTime(), event: 'gtm.js'}); var f = d.getElementsByTagName(s)[0],
+	j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+	'//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+	})(window, document, 'script', 'dataLayer', 'GTM-PPMZHS');</script>
+	<!-- End IncNow Google Tag Manager -->
+
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="javascript:$('#home_hack').tab('show');">My Account</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul id="navbar" class="nav navbar-nav" role="tablist">
+					<li><a href="#entities" role="tab" data-toggle="tab" data-authrequired="true">Entities</a></li>
+					<li><a href="#billing" role="tab" data-toggle="tab" data-authrequired="true">Billing</a></li>
+					<li><a href="#sop" role="tab" data-toggle="tab" data-authrequired="true">SOP</a></li>
+					<li><a href="#settings" role="tab" data-toggle="tab" data-authrequired="true">Settings</a></li>
+					<li class="hidden"><a id="home_hack" href="#home" role="tab" data-toggle="tab">Home</a></li>
+				</ul>
+				<p class="navbar-text navbar-right">
+					<span class="is_authenticated">Signed in as <span id="navigation_auth_name"></span> <a href="javascript:signOut(function(){$('#home_hack').tab('show');})" class="navbar-link">(Sign out)</a></span>
+					<span class="is_not_authenticated"><a href="javascript:showSigninDialog()" class="navbar-link">Sign in</a></span>
+				</p>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<div class="tab-content">
+
+			<div id="home" class="tab-pane fade in active">
+				<div class="jumbotron">
+					<div class="row">
+						<div class="col-md-6">
+							<h1>My Account</h1>
+							<p>Vestibulum dictum odio urna, ac sollicitudin ante gravida sed. Suspendisse posuere vestibulum libero, eu suscipit turpis hendrerit suscipit. Nunc eleifend molestie justo, in gravida est gravida a.</p>
+						</div>
+						<div class="col-md-6">
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe src="//www.youtube.com/embed/Yt3EUct_pL4?showinfo=0" frameborder="0" allowfullscreen></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">
+						<h2>Heading</h2>
+						<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+						<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+					</div>
+					<div class="col-md-4">
+						<h2>Heading</h2>
+						<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+						<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+					</div>
+					<div class="col-md-4">
+						<h2>Heading</h2>
+						<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+						<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+					</div>
+				</div>
+
+			</div>
+			<div id="entities" class="tab-pane fade">
+				<h1>My Entities <small>Ut enim mi, fringilla quis lectus in, fringilla ornare magna.</small></h1>
+				<div class="tab_content_container" data-content="entities"></div>
+			</div>
+			<div id="billing" class="tab-pane fade">
+				<h1>My Billing <small>Mauris gravida diam ex, id rutrum diam dapibus vitae.</small></h1>
+				<h2>Invoices <small>Sed eget dui id enim lacinia porta.</small></h2>
+				<div class="tab_content_container" data-content="invoices"></div>
+				<h2>Transactions <small>Aliquam eu condimentum arcu.</small></h2>
+				<div class="tab_content_container" data-content="transactions"></div>
+			</div>
+			<div id="sop" class="tab-pane fade">
+				<h1>My SOP <small>Vivamus at nunc tortor.</small></h1>
+				<div class="tab_content_container" data-content="sops"></div>
+			</div>
+			<div id="settings" class="tab-pane fade">
+				<h1>My Settings <small>Vestibulum commodo magna vel nisl consequat.</small></h1>
+				<div class="row">
+					<div class="col-md-8">
+						<h2>Contact <small>Etiam arcu velit, imperdiet ac mollis et, fringilla auctor eros.</small></h2>
+						<div class="tab_content_container" data-content="contact"></div>
+					</div>
+					<div class="col-md-4">
+						<h2>Payment <small>Integer mi dolor.</small></h2>
+						<div class="tab_content_container" data-content="payment"></div>
+						<br />
+						<hr />
+						<h2>Credentials <small>Nullam tellus leo.</small></h2>
+						<div class="tab_content_container" data-content="credentials"></div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+
+		<hr/>
+
+		<footer>
+			<div class="row">
+				<div class="col-md-6">
+					<a href="http://www.incnow.com" target="_blank">&copy; Agents and Corporations, Inc. 2014</a>
+				</div>
+				<div class="col-md-6 text-right is_authenticated">
+					<a href="javascript:showSurveyDialog();">Please take our 30 second survey to help us serve you better.</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<div class="modal fade" data-backdrop="static" data-keyboard="false" id="modal_signin">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title text-center">Sign In To Access Your Account</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert alert-danger text-center" role="alert" id="alert_signin_fail" style="display: none;">
+						<strong>Invalid Credentials</strong><br />
+						If you are certain you entered your information correctly, please contact our office for further instructions.
+					</div>
+					<div class="alert alert-warning text-center" role="alert">
+						<strong>Example</strong><br>
+						We have a few options how we want to authenticate users, the real signin could be something like this.
+					</div>
+					<form role="form" id="form_signin">
+						<div class="form-group">
+							<label>AccountId</label>
+							<input name="accountId" type="text" class="form-control" value="0018000000xQbrRAAS" />
+						</div>
+						<div class="form-group">
+							<label>AuthKey</label>
+							<input name="authKey" type="text" class="form-control" value="B87400206CD8441300CE2E6697C5399F" />
+						</div>
+						<input name="redirect" type="hidden" />
+						<button class="btn btn-lg btn-primary btn-block" type="button" id="btn_signin">Sign in</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" data-keyboard="false" id="modal_add_payment">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Add New Card To Your Account</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" id="form_add_payment">
+						<div class="row">
+							<div class="col-md-6">
+								<label>First Name On Card</label>
+								<input name="firstName" type="text" class="form-control" />
+							</div>
+							<div class="col-md-6">
+								<label>Last Name On Card</label>
+								<input name="lastName" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Card Number</label>
+								<input name="cardNumber" type="text" class="form-control" placeholder="####-####-####-####" />
+							</div>
+							<div class="col-md-6">
+								<label>Expiration</label>
+								<div>
+									<div class="col-xs-6">
+										<select class="form-control" id="add_payment_expiration_month" name="expirationMonth"></select>
+									</div>
+									<div class="col-xs-6">
+										<select class="form-control" id="add_payment_expiration_year" name="expirationYear"></select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>CVV</label>
+								<input name="cvv" type="text" class="form-control" />
+							</div>
+							<div class="col-md-6">
+								<label>Billing Zip Code</label>
+								<input name="billingZip" type="text" class="form-control" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" id="btn_add_payment">Add New Card</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal_add_file">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Upload New Document To Entity</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" id="form_add_file">
+						<div class="form-group">
+							<label>Entity</label>
+							<input id="stateentityname" type="text" class="form-control" readonly value="" />
+							<input name="stateentityid" type="hidden" class="form-control" readonly value="" />
+						</div>
+						<div class="form-group">
+							<label>Document</label>
+							<input name="file" type="file" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<textarea name="description" rows="2" maxlength="255" placeholder="(optional)" class="form-control"></textarea>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" id="btn_add_file">Upload New Document</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal_submit_survey">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Survey</h4>
+				</div>
+				<div class="modal-body">
+					<form role="form" id="form_submit_survey">
+						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" id="btn_submit_survey">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var _baseapiurl = "https://secure.incnow.com/v1_dev/"; //"http://localhost:49907/";//
+		var cache = {};
+		var session = {};
+	</script>
+	<script src="js/script.js?_201411022200"></script>
+	<script src="js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
