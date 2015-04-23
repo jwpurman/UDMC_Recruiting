@@ -17,21 +17,47 @@
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+                <script>
+                    function setCookie(cname, cvalue, exdays) {
+                        var d = new Date();
+                        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                        var expires = "expires=" + d.toUTCString();
+                        document.cookie = cname + "=" + cvalue + "; " + expires;
+                    }
+
+                    function getCookie(cname) {
+                        var name = cname + "=";
+                        var ca = document.cookie.split(';');
+                        for (var i = 0; i < ca.length; i++) {
+                            var c = ca[i];
+                            while (c.charAt(0) == ' ') c = c.substring(1);
+                            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+                        }
+                        return "";
+                    }
+
+                    function checkCookie() {
+                        var user = getCookie("username");
+                        if (user != "") {
+                            
+                            document.getElementById('put').innerHTML = 'welcome' + " " + user;
+                        } else {
+                            user = prompt("Please enter your name:", "");
+                            if (user != "" && user != null) {
+                                setCookie("username", user, 365);
+                            }
+                        }
+                    }
+
+                        </script>
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="plugins/select2/select2.min.js"></script>
 </head>
 
-<body class="not_authenticated">
-	<!-- IncNow Google Tag Manager -->
-	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PPMZHS"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<script>(function (w, d, s, l, i) {w[l] = w[l] || []; w[l].push({'gtm.start':
-	new Date().getTime(), event: 'gtm.js'}); var f = d.getElementsByTagName(s)[0],
-	j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-	'//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-	})(window, document, 'script', 'dataLayer', 'GTM-PPMZHS');</script>
-	<!-- End IncNow Google Tag Manager -->
+<body onload="checkCookie()" class="not_authenticated">
+    
 
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
@@ -42,21 +68,23 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="javascript:$('#home_hack').tab('show');">My Account</a>
+				<a class="navbar-brand" href="javascript:$('#home_hack').tab('show');">UDMC Recruiting Portal</a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul id="navbar" class="nav navbar-nav" role="tablist">
-					<li><a href="#entities" role="tab" data-toggle="tab" data-authrequired="true">Entities</a></li>
-					<li><a href="#billing" role="tab" data-toggle="tab" data-authrequired="true">Billing</a></li>
-					<li><a href="#sop" role="tab" data-toggle="tab" data-authrequired="true">SOP</a></li>
-					<li><a href="#settings" role="tab" data-toggle="tab" data-authrequired="true">Settings</a></li>
+					<li><a href="#entities" role="tab" data-toggle="tab" data-authrequired="true">Home</a></li>
+					<li><a href="#billing" role="tab" data-toggle="tab" data-authrequired="true">About</a></li>
+					<li><a href="#sop" role="tab" data-toggle="tab" data-authrequired="true">Contact</a></li>
+				
 					<li class="hidden"><a id="home_hack" href="#home" role="tab" data-toggle="tab">Home</a></li>
 				</ul>
 				<p class="navbar-text navbar-right">
 					<span class="is_authenticated">Signed in as <span id="navigation_auth_name"></span> <a href="javascript:signOut(function(){$('#home_hack').tab('show');})" class="navbar-link">(Sign out)</a></span>
-					<span class="is_not_authenticated"><a href="javascript:showSigninDialog()" class="navbar-link">Sign in</a></span>
+					<span class="is_not_authenticated"><a href="javascript:showSigninDialog()" class="navbar-link">Sign in</a></span><span id="put" ></span>
 				</p>
 
+                
+                
 			</div>
 		</div>
 	</div>
@@ -69,7 +97,7 @@
 				<div class="jumbotron">
 					<div class="row">
 						<div class="col-md-6">
-							<h1>My Account</h1>
+							<h1>We Want You!</h1>
 							<p>Vestibulum dictum odio urna, ac sollicitudin ante gravida sed. Suspendisse posuere vestibulum libero, eu suscipit turpis hendrerit suscipit. Nunc eleifend molestie justo, in gravida est gravida a.</p>
 						</div>
 						<div class="col-md-6">
@@ -78,21 +106,67 @@
 							</div>
 						</div>
 					</div>
+
+        
+
+                    <form name="myForm"   role="form" id="mainform">
+						<div class="row">
+							<div class="col-md-6">
+								<label>First Name </label>
+								<input name="firstName" type="text" class="form-control" />
+							</div>
+							<div class="col-md-6">
+								<label>Last Name</label>
+								<input name="lastName" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Email</label>
+								<input name="email" type="text" class="form-control" placeholder="recruit@gmail.com" />
+							</div>
+							<div class="col-md-6">
+								<label>Phone Number</label>
+								<input name="phonenumber" type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<label>Address</label>
+								<input name="address" type="text" class="form-control" />
+							</div>
+							
+						</div>
+                        <br />
+
+                        <div class="row">
+							<div class="col-md-12">
+								<button class="btn btn-lg btn-primary"  type="submit" value="Set Cookies">Submit</button>
+							</div>
+							
+						</div>
+
+                        
+                        
+					</form>
+
+                    
+
 				</div>
 
 				<div class="row">
 					<div class="col-md-4">
-						<h2>Heading</h2>
+						<h2>Info Here</h2>
 						<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 						<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
 					</div>
 					<div class="col-md-4">
-						<h2>Heading</h2>
+						<h2>History</h2>
 						<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 						<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
 					</div>
 					<div class="col-md-4">
-						<h2>Heading</h2>
+						<h2>Videos</h2>
 						<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 						<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
 					</div>
@@ -139,7 +213,7 @@
 		<footer>
 			<div class="row">
 				<div class="col-md-6">
-					<a href="http://www.incnow.com" target="_blank">&copy; Agents and Corporations, Inc. 2014</a>
+					<a href="http://www.incnow.com" target="_blank">&copy; Delaware Men's Crew. 2015</a>
 				</div>
 				<div class="col-md-6 text-right is_authenticated">
 					<a href="javascript:showSurveyDialog();">Please take our 30 second survey to help us serve you better.</a>
@@ -161,16 +235,16 @@
 					</div>
 					<div class="alert alert-warning text-center" role="alert">
 						<strong>Example</strong><br>
-						We have a few options how we want to authenticate users, the real signin could be something like this.
+						Ask for Name and Email and save in Cookie.  How do We eant to handle authentication?
 					</div>
 					<form role="form" id="form_signin">
 						<div class="form-group">
-							<label>AccountId</label>
-							<input name="accountId" type="text" class="form-control" value="0018000000xQbrRAAS" />
+							<label>Name</label>
+							<input name="accountId" type="text" class="form-control" value="Will Purman" />
 						</div>
 						<div class="form-group">
-							<label>AuthKey</label>
-							<input name="authKey" type="text" class="form-control" value="B87400206CD8441300CE2E6697C5399F" />
+							<label>Email</label>
+							<input name="authKey" type="text" class="form-control" value="willpurman@gmail.com" />
 						</div>
 						<input name="redirect" type="hidden" />
 						<button class="btn btn-lg btn-primary btn-block" type="button" id="btn_signin">Sign in</button>

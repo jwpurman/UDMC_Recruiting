@@ -8,44 +8,13 @@ function apiType(types, value) {
 	else return null;
 }
 
-//auth
-function signIn(credentials, success_callback, error_callback) {
-	var s_callback = function (a) {
-		var auth = false;
-		if (a) {
-			if (a["id"]) {
-				if (a["id"].length) auth = true;
-			}
-		}
-		if (auth) {
-			session = { credentials: credentials };
-			$("body").removeClass("not_authenticated").addClass("authenticated");
-			success_callback(a);
-		}
-		else {
-			$("body").removeClass("authenticated").addClass("not_authenticated");
-			error_callback();
-		}
-	};
-	getAccount(s_callback, error_callback, false, credentials);
-}
-function signOut(success_callback, error_callback) {
-	session = {};
-	clearCache();
-	$("body").removeClass("authenticated").addClass("not_authenticated");
-	success_callback();
-}
-function isAuthenticated() {
-	var auth = false;
-	if (session) {
-		if (session["credentials"]) {
-			if (session["credentials"]["accountId"]) {
-				if (session["credentials"]["accountId"].length) auth = true;
-			}
-		}
-	}
-	return auth;
-}
+//auth via cookie #yummy
+
+
+
+
+
+
 
 //api
 function getAccount(success_callback, error_callback, ignore_cache, credentials) {
@@ -1094,6 +1063,16 @@ function initSigninButton($signin) {
 			});
 	});
 }
+
+//close modal
+
+$('#btn_signin').click(function () {
+
+    $('#modal_signin').modal('hide');
+
+
+});
+
 function initSurveySubmitButton($submit) {
 	$submit.on("click", function () {
 		var data = {};
