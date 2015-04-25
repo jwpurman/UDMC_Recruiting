@@ -1,22 +1,23 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-	<title>IncNow | My Account</title>
+	<title>UDMC | Recruiting</title>
 
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link href="plugins/select2/select2.css" rel="stylesheet"/>
 	<link href="plugins/select2/select2-bootstrap.css" rel="stylesheet"/>
 	<link href="css/style.css" rel="stylesheet"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+   
                 <script>
                     function setCookie(cname, cvalue, exdays) {
                         var d = new Date();
@@ -72,9 +73,9 @@
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul id="navbar" class="nav navbar-nav" role="tablist">
-					<li><a href="#entities" role="tab" data-toggle="tab" data-authrequired="true">Home</a></li>
-					<li><a href="#billing" role="tab" data-toggle="tab" data-authrequired="true">About</a></li>
-					<li><a href="#sop" role="tab" data-toggle="tab" data-authrequired="true">Contact</a></li>
+					
+					<li><a href="#billing" role="tab" data-toggle="tab" data-authrequired="false">About</a></li>
+					<li><a href="#sop" role="tab" data-toggle="tab" data-authrequired="false">Contact</a></li>
 				
 					<li class="hidden"><a id="home_hack" href="#home" role="tab" data-toggle="tab">Home</a></li>
 				</ul>
@@ -102,55 +103,84 @@
 						</div>
 						<div class="col-md-6">
 							<div class="embed-responsive embed-responsive-16by9">
-								<iframe src="//www.youtube.com/embed/Yt3EUct_pL4?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/2arr5k6yspE" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
 					</div>
 
         
 
-                    <form name="myForm"   role="form" id="mainform">
-						<div class="row">
-							<div class="col-md-6">
-								<label>First Name </label>
-								<input name="firstName" type="text" class="form-control" />
-							</div>
-							<div class="col-md-6">
-								<label>Last Name</label>
-								<input name="lastName" type="text" class="form-control" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<label>Email</label>
-								<input name="email" type="text" class="form-control" placeholder="recruit@gmail.com" />
-							</div>
-							<div class="col-md-6">
-								<label>Phone Number</label>
-								<input name="phonenumber" type="text" class="form-control" />
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<label>Address</label>
-								<input name="address" type="text" class="form-control" />
-							</div>
-							
-						</div>
+                    <form id="Form" name="myForm" action="https://docs.google.com/forms/d/1PCBXRbkXpU_wZ8KLkLzbCsAHpoFnZgU8QzPYoOzg36w/formResponse" method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>First Name </label>
+                                <input id="firstName"  type="text" name="entry.533591426" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                                <label>Last Name</label>
+                                <input name="lastName" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                                <input name="email" type="text" class="form-control" placeholder="recruit@gmail.com" />
+                            </div>
+                            <div class="col-md-6">
+                                <label>Phone Number</label>
+                                <input name="phonenumber" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Address</label>
+                                <input name="address" type="text" class="form-control" />
+                            </div>
+
+                        </div>
                         <br />
 
                         <div class="row">
-							<div class="col-md-12">
-								<button class="btn btn-lg btn-primary"  type="submit" value="Set Cookies">Submit</button>
-							</div>
-							
-						</div>
+                            <div class="col-md-12">
+                                <button class="btn btn-lg btn-primary" type="submit" value="Set Cookies">Submit</button>
+                            </div>
 
-                        
-                        
-					</form>
+                        </div>
 
-                    
+
+
+                    </form>
+
+                    <script type="text/javascript">
+    function postToGoogle() {
+        var field1 = $("#firstName").val();
+       
+
+        $.ajax({
+            url: "https://docs.google.com/a/incnow.com/forms/d/1PCBXRbkXpU_wZ8KLkLzbCsAHpoFnZgU8QzPYoOzg36w/formResponse",
+            data: { "entry.533591426": field1 },
+            type: "POST",
+            dataType: "xml",
+            statusCode: {
+                0: function () {
+                    //Success message
+                },
+                200: function () {
+                    //Success Message
+                }
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $('#Form').submit(function () {
+            postToGoogle();
+            return false;
+        });
+    });
+                    </script>
+
+
 
 				</div>
 
@@ -178,33 +208,13 @@
 				<div class="tab_content_container" data-content="entities"></div>
 			</div>
 			<div id="billing" class="tab-pane fade">
-				<h1>My Billing <small>Mauris gravida diam ex, id rutrum diam dapibus vitae.</small></h1>
-				<h2>Invoices <small>Sed eget dui id enim lacinia porta.</small></h2>
-				<div class="tab_content_container" data-content="invoices"></div>
-				<h2>Transactions <small>Aliquam eu condimentum arcu.</small></h2>
-				<div class="tab_content_container" data-content="transactions"></div>
+				<p>About UDMC</p>
 			</div>
 			<div id="sop" class="tab-pane fade">
-				<h1>My SOP <small>Vivamus at nunc tortor.</small></h1>
+				<h1>Who Should the Recruit be emailing and stuff <small>Vivamus at nunc tortor.</small></h1>
 				<div class="tab_content_container" data-content="sops"></div>
 			</div>
-			<div id="settings" class="tab-pane fade">
-				<h1>My Settings <small>Vestibulum commodo magna vel nisl consequat.</small></h1>
-				<div class="row">
-					<div class="col-md-8">
-						<h2>Contact <small>Etiam arcu velit, imperdiet ac mollis et, fringilla auctor eros.</small></h2>
-						<div class="tab_content_container" data-content="contact"></div>
-					</div>
-					<div class="col-md-4">
-						<h2>Payment <small>Integer mi dolor.</small></h2>
-						<div class="tab_content_container" data-content="payment"></div>
-						<br />
-						<hr />
-						<h2>Credentials <small>Nullam tellus leo.</small></h2>
-						<div class="tab_content_container" data-content="credentials"></div>
-					</div>
-				</div>
-			</div>
+			
 		
 		</div>
 
